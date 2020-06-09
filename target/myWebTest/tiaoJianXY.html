@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>条件渲染测试</title>
+    <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+<!--    <input type="text" v-model="type" v-text="type">-->
+    <hr/>
+<!--    条件渲染过程中v-if、v-else-if 、v-else的标签要紧密跟在一起，不然会出现错误-->
+<!--    <div v-if="type==='A'"><span>AAA</span></div>-->
+<!--    <div v-else-if="type==='B'"><span>BBB</span></div>-->
+<!--    <div v-else-if="type==='C'"><span>CCC</span></div>-->
+<!--    <div v-else><span>DDD</span></div>-->
+    <div v-if="A"><span>AAA</span></div>
+    <div v-else-if="B"><span>BBB</span></div>
+    <div v-else-if="C"><span>CCC</span></div>
+    <div v-else><span>DDD</span></div>
+</div>
+
+<script>
+    var app = new Vue({
+        el:"#app",
+        data:{
+            A:false,
+            B:false,
+            C:false,
+            // type:'',
+        }
+    })
+</script>
+</body>
+</html>

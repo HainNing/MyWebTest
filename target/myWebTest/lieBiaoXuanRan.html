@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+</head>
+<body>
+<h1>列表渲染测试</h1>
+<ul id="circulationListTest">
+    <li v-for="item,name,index in items">
+        {{index}}:{{name}}:{{item}}
+    </li>
+</ul>
+
+<script>
+    var app = new Vue({
+        el:"#circulationListTest",
+        data:{
+            items:{
+                title:"How to do lists in Vue?",
+                author:"Hain Ning",
+                publishedAt: "2016-04-10"
+            }
+        }
+    });
+</script>
+</body>
+</html>

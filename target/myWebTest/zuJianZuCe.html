@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h3>组件注册测试</h3><br>
+    <component1></component1><br>
+    <component2></component2><br>
+    <component3></component3><br>
+</div>
+
+<script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                theText:"这是我的测试！！！"
+            },
+            components:{
+                component1:{
+                    template:'<H3>我是局部组件A</H3>',
+                },
+                component2:{
+                    template:'<H3>我是局部组件B</H3>',
+                },
+                component3:{
+                    template:'<H3>我是局部组件C</H3>',
+                }
+            }
+        });
+</script>
+
+</body>
+</html>

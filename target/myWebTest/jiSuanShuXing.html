@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <H4>监听测试</H4>
+    <p v-html="listenerValue"></p>
+    <input type="button" value="增加" @click="sumAdd"/>
+    <h4>{{listenerValue}}+显式！</h4>
+    <hr/>
+    <h4>计算属性测试</h4>
+    原字符：<p v-text="myText"></p>
+    计算后的字符：<p v-text="reverseText"></p>
+</div>
+<script>
+    var app =new Vue({
+        el:'#app',
+        data:{
+            listenerValue:1,
+            myText:"Hello!Vue!",
+        },
+        methods:{
+            sumAdd:function () {
+                this.listenerValue++;
+                console.log("点击了按钮！！");
+            }
+        },
+        watch:{
+            listenerValue: function (newValue,oldValue) {
+                alert("监听值发生变化了！！！由"+oldValue+"变成了"+newValue+"!!!");
+            }
+        },
+        computed:{
+            reverseText:function () {
+                return this.myText.split('').reverse().join('');
+            }
+        }
+    });
+</script>
+</body>
+</html>

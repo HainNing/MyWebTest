@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<HTML>
+<head>
+    <meta charset="utf-8"/>
+    <mata name = "viewport" content="width=device-width,initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+    <title>v-show指令</title>
+</head>
+<body>
+    <div id="app">
+        <h1>TEST!</h1>
+        <input type="button" value="切换" v-on:click="changeIsShow" />
+        <input type="button" value="常规绑定"  onclick="test()" />
+        <img v-show="isShow" src="images/jita.png" alt=""/>
+    </div>
+<!--<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>-->
+<script>
+     var app = new Vue({
+        el: "#app",
+        data: {
+            isShow:false
+        },
+        methods:{
+            changeIsShow:function () {
+                this.isShow = !this.isShow;
+                console.log("test!!!!!!!!!!!!!!!!!");
+                alert("点击了切换！！")
+            }
+        }
+    })
+</script>
+<script>
+    function test() {
+        alert("点击成功！");
+        console.log("点击了常规绑定按钮！！！");
+    }
+</script>
+</body>
+</HTML>

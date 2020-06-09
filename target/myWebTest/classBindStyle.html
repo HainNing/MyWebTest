@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="改变背景颜色" v-on:click="changebjColor"/>
+        <input type="button" value="改变字体大小" v-on:click="changefontSize1"/>
+        <input type="button" value="改变字体颜色" v-on:click="changefontColor1"/>
+        <p v-bind:class="{active:bjColor,style2:fontColor1,style3:fontSize1}" v-html="p_content"></p>
+    </div>
+
+<script>
+    var app = new Vue({
+        el:"#app",
+        data:{
+            bjColor:true,
+            fontSize1:true,
+            fontColor1:true,
+            p_content:"Hello!MyTest!!!",
+        },
+        methods:{
+            changebjColor:function () {
+                this.bjColor=!this.bjColor;
+            },
+            changefontSize1:function () {
+                this.fontSize1=!this.fontSize1;
+            },
+            changefontColor1:function () {
+                this.fontColor1=!this.fontColor1;
+            },
+        }
+    });
+</script>
+<style>
+    .active{
+        background-color: red;
+    }
+    .style2{
+        color: blue;
+    }
+    .style3{
+        font-size: xx-large;
+    }
+</style>
+</body>
+</html>

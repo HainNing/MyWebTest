@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+</head>
+<body>
+<script>
+    Vue.component('mycomponent',{
+        model:{
+            prop:'checked',
+            event:'change'
+        },
+        props:{
+            checked:Boolean
+        },
+        template:'<input type="checkbox" v-bind:checked="checked" v-on:change="$emit(\'change\',$event.target.checked)"/>'
+    });
+</script>
+
+<div id="app">
+    <mycomponent v-on:change="myChange"></mycomponent>
+    <p v-html="message"></p>
+    <mycomponent v-on:change="myChange222"></mycomponent>
+</div>
+
+<script>
+    var app = new Vue({
+        el:"#app",
+        data:{
+            message:"自定义信息",
+        },
+        methods:{
+            myChange:function () {
+                alert("myChange收到了子组件的事件信息！！！");
+            },
+            myChange222:function () {
+                alert("myChange222收到了子组件的事件信息！！！");
+            }
+        }
+    });
+</script>
+</body>
+</html>
